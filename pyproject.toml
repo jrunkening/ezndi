@@ -1,0 +1,14 @@
+[tool.poetry]
+name = "ezndi"
+version = "0.1.0"
+description = "A simple ndi wrapping in python"
+authors = ["JingYu Ning <115336923+jrunkening@users.noreply.github.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.8, <3.14"
+numpy = ">=1.24.4"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
