@@ -15,7 +15,7 @@ if __name__ == "__main__":
     while True: # loop to broadcast random image
         try:
             image = numpy.random.rand(720, 1280, 3)
-            send_frame(sender, image)
+            send_frame(sender, image, fps=60)
         except KeyboardInterrupt: # if you want to stop broadcasting, press Ctrl+C
             print("stop broadcasting")
             break

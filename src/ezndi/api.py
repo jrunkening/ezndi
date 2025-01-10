@@ -35,7 +35,7 @@ def destroy_ndi_sender(ndi_send: NDIlib_send_instance_t):
     NDI.NDIlib_send_destroy(ndi_send)
 
 
-def send_frame(ndi_send: NDIlib_send_instance_t, frame: ArrayLike):
+def send_frame(ndi_send: NDIlib_send_instance_t, frame: ArrayLike, fps: int = 60):
     """
     Send a frame to NDI sender.
 
@@ -50,7 +50,7 @@ def send_frame(ndi_send: NDIlib_send_instance_t, frame: ArrayLike):
     frame = NDIlib_video_frame_v2_t(
         xres = width, yres = height,
         FourCC = ord("R") | (ord("G")<<8) | (ord("B")<<16) | (ord("A")<<24), # NDIlib_FourCC_type_RGBA
-        frame_rate_N = 60, frame_rate_D = 1, # 60fps
+        frame_rate_N = fps, frame_rate_D = 1, # 60fps
         picture_aspect_ratio = width/height,
         frame_format_type = 1, # NDIlib_frame_format_type_e.progressive
         timecode = (2 ** 63) - 1, # NDIlib_send_timecode_synthesize
