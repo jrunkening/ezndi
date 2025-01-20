@@ -4,13 +4,13 @@ import os
 
 
 if not os.environ.get("PATH_LIB_NDI"):
-    PATH_LIB_NDI = Path(os.environ.get("ProgramFiles")).joinpath("NDI", "NDI 6 Tools", "Runtime", "Processing.NDI.Lib.x64.dll").as_posix()
+    PATH_LIB_NDI = Path(os.environ.get("ProgramFiles")).joinpath("NDI", "NDI 6 Tools", "Runtime", "Processing.NDI.Lib.x64.dll")
 else:
     PATH_LIB_NDI = Path(os.environ["PATH_LIB_NDI"])
 print(f"set `PATH_LIB_NDI` to {PATH_LIB_NDI}")
 
 
-NDI = ctypes.CDLL(PATH_LIB_NDI)
+NDI = ctypes.CDLL(PATH_LIB_NDI.as_posix())
 
 
 NDI.NDIlib_initialize.argtypes = []
